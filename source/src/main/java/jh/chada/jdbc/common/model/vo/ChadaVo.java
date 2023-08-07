@@ -53,7 +53,7 @@ public class ChadaVo {
 //	private String memberNo;
 
 //	blike
-	private String alikeDate;
+	private String blikeDate;
 //	private Integer boardCode;
 //	private String memberNo;
 	
@@ -66,100 +66,115 @@ public class ChadaVo {
 	private String aritcleContent;
 	
 //Alike
-	private String aLikeDate; //alikeDate
+	private String alikeDate; //alikeDate
 //	private Integer articleCode; 
 //	private String memberNo;
 	
 //info
-	private String INFO_CODE;
-	private String COUNTRY;
-	private String FARM;
-	private String VARIETY;
-	private String REGION;
-	private String PROCESS;
-	private Integer ALTITUDE;
-	private String PRODUCER;
+	private String infoCode;
+	private String country;
+	private String farm;
+	private String variety;
+	private String region;
+	private String process;
+	private Integer altitude;
+	private String producer;
 //falvor
-	private Integer FLAVOR_NO;
-	private String FLAVOR_NAME;
+	private Integer flavorNo;
+	private String flavorName;
 //	bean
-	private String BEAN_CODE;
-	private String INFO;
-	private String BEAN_CROP;
-	private String BEAN_NAME;
-	private Integer BEAN_ROAST;
+	private String beanCode;
+	private String info;
+	private String beanCrop;
+	private String beanName;
+	private Integer beanRoast;
 //	bean flavor
 	
 //	private Integer FLAVOR_NO; //FLAVOR_NO
 //	private String BEAN_CODE;
 	
 //	DRINK
-	private String VARIATION_NO;
-	private String VARIATION_NAME;
+	private String variationNo;
+	private String variationName;
 //	BAKERY
-	private String BAKERY_NO;
-	private String BAKERY_NAME;
+	private String bakeryNo;
+	private String bakeryName;
 //	MERCHANDISE
-	private String MD_NO;
-	private String MD_NAME;
+	private String mdNo;
+	private String mdName;
 //	price
-	private String PRICE_CODE;
-	private String PRICE_CUP;
-	private String PRICE_POT;
-	private String PRICE_UNIT;
+	private String priceCode;
+	private String priceCup;
+	private String pricePot;
+	private String priceUnit;
 //	private String BEAN_CODE;
 //	private String MD_NO;
 //	private String BAKERY_NO;
 //	private String VARIATION_NO;
 
 //	sell
-	private Integer SELL_NO;
-	private String SELL_NAME;
-	private Integer SELL_STOCK;
+	private Integer sellNo;
+	private String sellName;
+	private Integer sellStock;
 //	private String PRICE_CODE;
 	
 //	order
-	private Integer ORDER_NO;
-	private String ORDER_NAME;
-	private String ORDER_ADDRESS;
-	private String ORDER_PHONE_NUMBER;
-	private String ORDER_REQUEST;
-	private Integer ORDER_PRICE;
-	private String ORDER_TIME;
+	private Integer orderNo;
+	private String orderName;
+	private String orderAddress;
+	private String orderPhoneNumber;
+	private String orderRequest;
+	private Integer orderPrice;
+	private String orderTime;
 //	private String USER_NO;
 	
 //	order list
 //	private Integer SELL_NO;
 //	private Integer ORDER_NO;
-	private String OCART_AMOUNT; //order
+	private String ocartAmount; //order
 	
 //	notice
 //	private String MEMBER_NO;
-	private String NOTICE_CONTENT;
+	private String noticeContent;
 	
 //	coupon
-	private Integer COUPON_CODE;
-	private String COUPON_NAME;
-	private Integer COUPON_DR;
-	private Integer COUPON_DA;
-	private Integer COUPON_CON;
-	private String COUPON_LIMIT;
+	private Integer couponCode;
+	private String couponName;
+	private Integer couponDr;
+	private Integer couponDa;
+	private Integer couponCon;
+	private String couponLimit;
 //	private String USER_NO;
 	
 //	point
 //	private String USER_NO;
-	private String USER_POINT;
+	private String userPoint;
 	
 //	wish
 //	private String MEMBER_NO;
 //	private Integer SELL_NO;
-	private String WISH;
+	private String wish;
 	
 //	cart
 //	private Integer SELL_NO;
 //	private String MEMBER_NO;
-	private Integer CART_AMOUNT;
-	private String CART_TIME;
+	private Integer cartAmount;
+	private String cartTime;
+	
+//	bfile
+	
+	private String bfilePath;
+//	private integer boardCode;
+	
+//	afile
+	
+	private String afilePath;
+//	private integer articleCode;
+	
+//	sellfile
+	
+	private String filePath;
+//	private Integer sellNo;
 	
 	
 
