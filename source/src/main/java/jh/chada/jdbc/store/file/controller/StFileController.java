@@ -1,4 +1,4 @@
-package jh.chada.jdbc.board.controller;
+package jh.chada.jdbc.store.file.controller;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -8,16 +8,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class BoReadController
+ * Servlet implementation class StFileController
  */
-@WebServlet("/board/read")
-public class BoReadController extends HttpServlet {
+@WebServlet("/store/file")
+public class StFileController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public BoReadController() {
+    public StFileController() {
         super();
         // TODO Auto-generated constructor stub
     }
