@@ -21,7 +21,7 @@
 
 <filter>
 		<filter-name>EncodingFilter</filter-name>
-		<filter-class>js.chada.jdbc.common.filter.EncodingFilter</filter-class>
+		<filter-class>jh.chada.jdbc.common.filter.EncodingFilter</filter-class>
 	</filter>
 	<filter-mapping>
 		<filter-name>EncodingFilter</filter-name>
