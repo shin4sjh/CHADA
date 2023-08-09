@@ -21,7 +21,7 @@
 
 <filter>
 		<filter-name>EncodingFilter</filter-name>
-		<filter-class>kh.test.jdbckh.common.filter.EncodingFilter</filter-class>
+		<filter-class>js.chada.jdbc.common.filter.EncodingFilter</filter-class>
 	</filter>
 	<filter-mapping>
 		<filter-name>EncodingFilter</filter-name>
@@ -31,7 +31,7 @@
 <!-- 
 	<filter>
 		<filter-name>PasswordFilter</filter-name>
-		<filter-class>kh.test.jdbckh.common.filter.PasswordFilter</filter-class>
+		<filter-class>js.chada.jdbc.common.filter.PasswordFilter</filter-class>
 	</filter>
 	<filter-mapping>
 		<filter-name>PasswordFilter</filter-name>

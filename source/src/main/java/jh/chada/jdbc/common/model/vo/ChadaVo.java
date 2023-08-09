@@ -30,10 +30,10 @@ public class ChadaVo {
 	private String boardTitle; 
 	private String boardContent; 
 	private String boardDate; 
-	private String boardRef; 
-	private String boardLevel; 
-	private String boardStep; 
-//	private Integer memberNo; 
+	private Integer boardRef; 
+	private Integer boardLevel; 
+	private Integer boardStep; 
+//	private String memberNo; 
 	private String boardCategory;
 //	private String keywordCode;
 //	private Integer tagNo;
@@ -58,13 +58,19 @@ public class ChadaVo {
 //	private String memberNo;
 	
 //article
-	private String articleCode;
+	private Integer articleCode;
 //	private String memberNo;
 	private String articleTitle;
 //	private String keywordCode;
 	private String articleTime;
 	private String aritcleContent;
-	
+
+// acount
+
+//	private String readDate; a
+	// private Integer articleCode;
+	// private String memberNo;
+
 //Alike
 	private String alikeDate; //alikeDate
 //	private Integer articleCode; 
@@ -126,7 +132,7 @@ public class ChadaVo {
 	private String orderRequest;
 	private Integer orderPrice;
 	private String orderTime;
-//	private String USER_NO;
+//	private String MEMBER_NO;
 	
 //	order list
 //	private Integer SELL_NO;
@@ -144,11 +150,11 @@ public class ChadaVo {
 	private Integer couponDa;
 	private Integer couponCon;
 	private String couponLimit;
-//	private String USER_NO;
+//	private String MEMBER_NO;
 	
 //	point
-//	private String USER_NO;
-	private String userPoint;
+//	private String MEMBER_NO;
+	private String memberPoint;
 	
 //	wish
 //	private String MEMBER_NO;
