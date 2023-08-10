@@ -169,10 +169,21 @@ public class BoardDao {
 		}
 
 		// 한 행 삭제 - 주로 PK로 where조건
-		public int delete(Connection conn, int boardCode) {
+		public int delete(Connection conn,  int boardCode) {
 			System.out.println("[Board Dao delete] board_code:" + boardCode);
-			int result = 0;
-			// TODO
+			int result = 0;		
+			String query = "delete from TB_BOARD where BOARD_CODE = ?  )";
+			PreparedStatement pstmt = null;
+			try {
+				pstmt = conn.prepareStatement(query);
+				pstmt.setInt(1 , boardCode);
+				result = pstmt.executeUpdate();
+			} catch (Exception e) {
+				e.printStackTrace();
+			} finally {
+				close(pstmt);
+			}
+			
 			System.out.println("[Board Dao delete] return:" + result);
 			return result;
 		}

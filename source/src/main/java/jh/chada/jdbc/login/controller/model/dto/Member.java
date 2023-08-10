@@ -1,6 +1,6 @@
 package jh.chada.jdbc.login.controller.model.dto;
 
-public class LoginDto {
+public class Member {
 
 	private String memberNo;
 	private String memberId;
@@ -17,14 +17,12 @@ public class LoginDto {
 	private String address;
 	private String address2;
 	
-	public LoginDto() {
-		
+	public Member() {
 	}
-
-	public LoginDto(String memberNo, String memberId, String memberPassword, String memberRank,
-			String memberPhoneNumber, String memberPhoneNumber2, String memberEmail, String memberEmail2,
-			String memberSignDate, String memeberName, Integer memberGender, String memberBirth, String address,
-			String address2) {
+	
+	public Member(String memberNo, String memberId, String memberPassword, String memberRank, String memberPhoneNumber,
+			String memberPhoneNumber2, String memberEmail, String memberEmail2, String memberSignDate,
+			String memeberName, Integer memberGender, String memberBirth, String address, String address2) {
 		this.memberNo = memberNo;
 		this.memberId = memberId;
 		this.memberPassword = memberPassword;
@@ -41,16 +39,9 @@ public class LoginDto {
 		this.address2 = address2;
 	}
 
-	
-
-	public LoginDto(String memberId, String memberPassword) {
-		this.memberId = memberId;
-		this.memberPassword = memberPassword;
-	}
-
 	@Override
 	public String toString() {
-		return "LoginDto [memberNo=" + memberNo + ", memberId=" + memberId + ", memberPassword=" + memberPassword
+		return "Member [memberNo=" + memberNo + ", memberId=" + memberId + ", memberPassword=" + memberPassword
 				+ ", memberRank=" + memberRank + ", memberPhoneNumber=" + memberPhoneNumber + ", memberPhoneNumber2="
 				+ memberPhoneNumber2 + ", memberEmail=" + memberEmail + ", memberEmail2=" + memberEmail2
 				+ ", memberSignDate=" + memberSignDate + ", memeberName=" + memeberName + ", memberGender="
@@ -170,4 +161,6 @@ public class LoginDto {
 		this.address2 = address2;
 	}
 
+	
+	
 }

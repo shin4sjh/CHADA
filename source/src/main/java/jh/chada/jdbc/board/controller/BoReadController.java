@@ -45,7 +45,7 @@ public class BoReadController extends HttpServlet {
 		
 		BoardDto dto = service.selectOne(board_code);
 		request.setAttribute("bvo", dto);
-		request.getRequestDispatcher("/view/board/read.jsp").forward(request, response);
+		request.getRequestDispatcher("/views/board/read.jsp").forward(request, response);
 	}
 
 	private  void getWorknet(String region, String occupation) throws IOException {

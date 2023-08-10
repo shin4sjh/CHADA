@@ -13,6 +13,12 @@ public class AattachFileDto {
 		this.afilePath = afilePath;
 		this.articleCode = articleCode;
 	}
+	
+	
+
+	public AattachFileDto(String afilePath) {
+		this.afilePath = afilePath;
+	}
 
 	@Override
 	public String toString() {

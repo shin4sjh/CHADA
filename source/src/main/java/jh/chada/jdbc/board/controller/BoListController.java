@@ -38,7 +38,7 @@ public class BoListController extends HttpServlet {
 		// 3. 
 		request.setAttribute("boardList", result);
 		// 4.
-		request.getRequestDispatcher("/view/board/list.jsp").forward(request, response);
+		request.getRequestDispatcher("/views/board/list.jsp").forward(request, response);
 	}
 
 	/**

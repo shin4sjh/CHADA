@@ -13,7 +13,7 @@ public class ArticleDto {
 		private String articleTitle;
 		private String keywordCode;
 		private String articleTime;
-		private String aritcleContent;
+		private String articleContent;
 		private String readDate;
 		private String alikeDate; 
 
@@ -26,23 +26,37 @@ public class ArticleDto {
 
 
 	public ArticleDto(Integer articleCode, String memberNo, String articleTitle, String keywordCode, String articleTime,
+			String aritcleContent) {
+		this.articleCode = articleCode;
+		this.memberNo = memberNo;
+		this.articleTitle = articleTitle;
+		this.keywordCode = keywordCode;
+		this.articleTime = articleTime;
+		this.articleContent = aritcleContent;
+	}
+
+
+	public ArticleDto(Integer articleCode, String memberNo, String articleTitle, String keywordCode, String articleTime,
 			String aritcleContent, String readDate, String alikeDate) {
 		this.articleCode = articleCode;
 		this.memberNo = memberNo;
 		this.articleTitle = articleTitle;
 		this.keywordCode = keywordCode;
 		this.articleTime = articleTime;
-		this.aritcleContent = aritcleContent;
+		this.articleContent = aritcleContent;
 		this.readDate = readDate;
 		this.alikeDate = alikeDate;
 	}
 
 
+	
+
+
 	@Override
 	public String toString() {
 		return "ArticleDto [articleCode=" + articleCode + ", memberNo=" + memberNo + ", articleTitle=" + articleTitle
-				+ ", keywordCode=" + keywordCode + ", articleTime=" + articleTime + ", aritcleContent=" + aritcleContent
-				+ ", readDate=" + readDate + ", alikeDate=" + alikeDate + "]";
+				+ ", keywordCode=" + keywordCode + ", articleTime=" + articleTime + ", articleContent=" + articleContent
+				+ ", readDate=" + readDate + ", alikeDate=" + alikeDate + ", aattachFileList=" + aattachFileList + "]";
 	}
 
 
@@ -97,12 +111,12 @@ public class ArticleDto {
 
 
 	public String getAritcleContent() {
-		return aritcleContent;
+		return articleContent;
 	}
 
 
 	public void setAritcleContent(String aritcleContent) {
-		this.aritcleContent = aritcleContent;
+		this.articleContent = aritcleContent;
 	}
 
 
@@ -123,6 +137,26 @@ public class ArticleDto {
 
 	public void setAlikeDate(String alikeDate) {
 		this.alikeDate = alikeDate;
+	}
+
+
+	public String getArticleContent() {
+		return articleContent;
+	}
+
+
+	public void setArticleContent(String articleContent) {
+		this.articleContent = articleContent;
+	}
+
+
+	public List<AattachFileDto> getAattachFileList() {
+		return aattachFileList;
+	}
+
+
+	public void setAattachFileList(List<AattachFileDto> aattachFileList) {
+		this.aattachFileList = aattachFileList;
 	}
 
 }

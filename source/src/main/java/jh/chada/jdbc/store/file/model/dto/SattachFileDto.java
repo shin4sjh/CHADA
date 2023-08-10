@@ -13,6 +13,12 @@ public class SattachFileDto {
 		this.sellNo = sellNo;
 	}
 
+	
+	
+	public SattachFileDto(String filePath) {
+		this.filePath = filePath;
+	}
+
 	@Override
 	public String toString() {
 		return "SattachFileDto [filePath=" + filePath + ", sellNo=" + sellNo + "]";

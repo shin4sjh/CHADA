@@ -16,7 +16,7 @@ public class JdbcTemplate {
 	
 	public static Connection getConnection() {
 		Properties prop = new Properties();
-		String currentPath = JdbcTemplate.class.getResource("./").getPath();
+		String currentPath = JdbcTemplate.class.getResource("/jh/chada/jdbc/common/driver").getPath();
 		System.out.println("currentPath: "+currentPath);
 //		currentPath: /C:/workspace/java/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/20230721_jdbc_kh/WEB-INF/classes/kh/test/jdbckh/common/jdbc/
 		try {

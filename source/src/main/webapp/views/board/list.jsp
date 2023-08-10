@@ -49,9 +49,9 @@
 		<div>옵션</div>	
 <c:if test="${not empty boardList }">
 	<c:forEach items="${boardList }" var="vo">
-		<div>${vo.bno }</div>
+		<div>${vo.boardCode }</div>
 		<div>
-		<a href="<%=request.getContextPath()%>/board/read?bno=${vo.bno }">
+		<a href="<%=request.getContextPath()%>/board/read?boardCode=${vo.boardCode }">
 		<c:forEach begin="1" end="${vo.breLevel }">
 		&#8618; 
 		</c:forEach>
@@ -60,7 +60,7 @@
 		</div>
 		<div>${vo.mid }</div>
 		<div>${vo.bwriteDate }</div>
-		<div><a href="<%=request.getContextPath()%>/board/insert?bno=${vo.bno }">답글</a></div>
+		<div><a href="<%=request.getContextPath()%>/board/write?boardCode=${vo.boardCode }">답글</a></div>
 	</c:forEach>
 </c:if>
 	</div>

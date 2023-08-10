@@ -49,7 +49,7 @@ System.out.println("/board/write doGet()");
 			}
 		}
 		
-		request.getRequestDispatcher("/view/board/write.jsp").forward(request, response);
+		request.getRequestDispatcher("/views/board/write.jsp").forward(request, response);
 	}
 
 // file 이 request에 실려오는 경우 
