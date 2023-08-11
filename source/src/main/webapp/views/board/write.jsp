@@ -10,8 +10,8 @@
 <body>
 <c:if test="${empty SsLoginId }">
 	<script>
-		alert("글작성은 로그인 후 사용가능합니다.");
-		location.href="${pageContext.request.contextPath}/login";
+		/* alert("글작성은 로그인 후 사용가능합니다.");
+		location.href="${pageContext.request.contextPath}/login"; */
 	</script>
 </c:if>
 <c:choose>
@@ -24,7 +24,7 @@
 </c:choose>
 	<div>
 	<!-- type="file" 이 있다면 form method="post" enctype="multipart/form-data" 반드시 작성!!! -->
-		<form action="<%=request.getContextPath() %>/board/insert" method="post" 
+		<form action="<%=request.getContextPath() %>/board/write" method="post" 
 					enctype="multipart/form-data" >
 			<c:if test="${not empty board_code }">
 				<input type="hidden" name="board_code" value="${board_code }">

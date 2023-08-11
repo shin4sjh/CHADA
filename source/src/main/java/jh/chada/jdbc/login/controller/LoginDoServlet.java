@@ -20,7 +20,7 @@ public class LoginDoServlet extends HttpServlet {
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		System.out.println("[ ]login.login post");
-		String memberId=	request.getParameter("memberId");
+		String memberId = request.getParameter("memberId");
 		String memberPassword = request.getParameter("memberPassword");
 		LoginDto vo = new LoginDto( memberId, memberPassword);
 		String result = new MemberService().login(memberId);

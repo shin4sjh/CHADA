@@ -40,7 +40,7 @@
 </c:choose>
 </div>
 	<h2>게시글</h2>
-	<div><a href="<%=request.getContextPath()%>/board/insert">새글등록</a></div>
+	<div><a href="<%=request.getContextPath()%>/board/write">새글등록</a></div>
 	<div class="wrap-grid">
 		<div>번호</div>
 		<div>제목</div>
@@ -52,14 +52,14 @@
 		<div>${vo.boardCode }</div>
 		<div>
 		<a href="<%=request.getContextPath()%>/board/read?boardCode=${vo.boardCode }">
-		<c:forEach begin="1" end="${vo.breLevel }">
+		<c:forEach begin="1" end="${vo.boardLevel }">
 		&#8618; 
 		</c:forEach>
-		${vo.btitle }
+		${vo.boardTitle }
 		</a>
 		</div>
-		<div>${vo.mid }</div>
-		<div>${vo.bwriteDate }</div>
+		<div>${vo.memberNo }</div>
+		<div>${vo.boardDate }</div>
 		<div><a href="<%=request.getContextPath()%>/board/write?boardCode=${vo.boardCode }">답글</a></div>
 	</c:forEach>
 </c:if>

@@ -26,7 +26,7 @@ public class MemberService {
 			return result;
 		}
 		// 한 행 읽기 - PK로where조건
-		public Member selectOne(int boardCode){
+		public Member selectOne(String boardCode){
 			Member result = null;
 			Connection conn = getConnection();
 			result = dao.selectOne(conn, boardCode);

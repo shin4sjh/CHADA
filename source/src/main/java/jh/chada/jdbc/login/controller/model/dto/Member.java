@@ -11,7 +11,7 @@ public class Member {
 	private String memberEmail;
 	private String memberEmail2;
 	private String memberSignDate;
-	private String memeberName;
+	private String memberName;
 	private Integer memberGender;
 	private String memberBirth;
 	private String address;
@@ -32,7 +32,7 @@ public class Member {
 		this.memberEmail = memberEmail;
 		this.memberEmail2 = memberEmail2;
 		this.memberSignDate = memberSignDate;
-		this.memeberName = memeberName;
+		this.memberName = memberName;
 		this.memberGender = memberGender;
 		this.memberBirth = memberBirth;
 		this.address = address;
@@ -44,7 +44,7 @@ public class Member {
 		return "Member [memberNo=" + memberNo + ", memberId=" + memberId + ", memberPassword=" + memberPassword
 				+ ", memberRank=" + memberRank + ", memberPhoneNumber=" + memberPhoneNumber + ", memberPhoneNumber2="
 				+ memberPhoneNumber2 + ", memberEmail=" + memberEmail + ", memberEmail2=" + memberEmail2
-				+ ", memberSignDate=" + memberSignDate + ", memeberName=" + memeberName + ", memberGender="
+				+ ", memberSignDate=" + memberSignDate + ", memeberName=" + memberName + ", memberGender="
 				+ memberGender + ", memberBirth=" + memberBirth + ", address=" + address + ", address2=" + address2
 				+ "]";
 	}
@@ -121,12 +121,12 @@ public class Member {
 		this.memberSignDate = memberSignDate;
 	}
 
-	public String getMemeberName() {
-		return memeberName;
+	public String getMemberName() {
+		return memberName;
 	}
 
-	public void setMemeberName(String memeberName) {
-		this.memeberName = memeberName;
+	public void setMemberName(String memberName) {
+		this.memberName = memberName;
 	}
 
 	public Integer getMemberGender() {
