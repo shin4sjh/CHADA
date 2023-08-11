@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>카테고리별 서칭</title>
 </head>
 <body>
 

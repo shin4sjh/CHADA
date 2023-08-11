@@ -22,7 +22,7 @@ public class BoardDao {
 			List<BoardDto> result = new ArrayList<BoardDto>();
 
 			String query = " select BOARD_CODE, BOARD_TITLE, to_char(BOARD_DATE, 'yyyy-mm-dd hh24:mi:ss') BOARD_DATE, MEMBER_NO, BOARD_REF, BOARD_LEVEL, BOARD_STEP, BOARD_CATEGORY, KEYWORD_CODE, TAG_NO  from TB_BOARD ";
-			query += " order by BREF desc, BRE_STEP asc"; // 정렬순서
+			query += " order by BOARD_REF desc, BOARD_STEP asc"; // 정렬순서
 
 			PreparedStatement pstmt = null;
 			ResultSet rs = null;

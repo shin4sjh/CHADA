@@ -7,6 +7,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import jh.chada.jdbc.store.model.service.StoreService;
+
 /**
  * Servlet implementation class ListController
  */
@@ -16,6 +18,7 @@ public class ListController extends HttpServlet {
        
    
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		request.setAttribute("storeList", new StoreService().selectList());
 		request.getRequestDispatcher("/views/store/list.jsp").forward(request, response);
 	}
 

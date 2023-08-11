@@ -78,7 +78,7 @@ public class KeywordDao {
 	public int delete(Connection conn, String keywordCode , String keywordName) {
 		System.out.println("[Board Dao delete] bno:" + keywordCode);
 		int result = 0;
-		String query= "delete from tb_notice where keywordCode = ? and keywordName = ?";
+		String query= "delete from tb_notice where keyword_Code = ? and keyword_Name = ?";
 		PreparedStatement pstmt = null;
 		ResultSet rs =null;
 		

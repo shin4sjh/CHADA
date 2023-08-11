@@ -10,8 +10,8 @@
 <body>
 <c:if test="${empty SsLoginId }">
 	<script>
-		/* alert("글작성은 로그인 후 사용가능합니다.");
-		location.href="${pageContext.request.contextPath}/login"; */
+		 alert("글작성은 로그인 후 사용가능합니다.");
+		location.href="${pageContext.request.contextPath}/login"; 
 	</script>
 </c:if>
 <c:choose>
