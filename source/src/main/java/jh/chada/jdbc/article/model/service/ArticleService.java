@@ -13,7 +13,7 @@ import jh.chada.jdbc.article.file.model.dto.AattachFileDto;
 import jh.chada.jdbc.article.model.dao.ArticleDao;
 import jh.chada.jdbc.article.model.dto.ArticleDto;
 import jh.chada.jdbc.article.model.dto.ArticleListDto;
-import jh.chada.jdbc.login.controller.model.dao.MemberDao;
+import jh.chada.jdbc.login.model.dao.MemberDao;
 
 public class ArticleService {
 

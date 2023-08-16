@@ -1,4 +1,4 @@
-package jh.chada.jdbc.login.controller.model.dto;
+package jh.chada.jdbc.login.model.dto;
 
 public class Member {
 

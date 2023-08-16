@@ -41,6 +41,7 @@
 		
 		<button type="button" id="btn-board-list">글목록으로 이동</button>
 	</div>
+	<div>${bno }</div>
 	<script>
 		$("#btn-add-file").click(function(){
 			var cnt = $("[type=file]").length+1;

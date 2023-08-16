@@ -32,7 +32,7 @@
 </script>
 <c:choose>
 	<c:when test="${not empty SsLoginId }">
-<a href="${pageContext.request.contextPath}/logout">로그아웃</a>
+<a href="${pageContext.request.contextPath}/board/list">로그아웃</a>
 	</c:when>
 	<c:otherwise>
 <a href="${pageContext.request.contextPath}/login">로그인</a>

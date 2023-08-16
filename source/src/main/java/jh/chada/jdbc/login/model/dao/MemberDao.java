@@ -1,4 +1,4 @@
-package jh.chada.jdbc.login.controller.model.dao;
+package jh.chada.jdbc.login.model.dao;
 
 import static jh.chada.jdbc.common.temp.JdbcTemplate.close;
 
@@ -9,8 +9,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import jh.chada.jdbc.login.controller.model.dto.LoginDto;
-import jh.chada.jdbc.login.controller.model.dto.Member;
+import jh.chada.jdbc.login.model.dto.LoginDto;
+import jh.chada.jdbc.login.model.dto.Member;
 
 public class MemberDao {
 	// 모든 행 읽기

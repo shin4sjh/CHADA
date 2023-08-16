@@ -12,6 +12,7 @@ import jh.chada.jdbc.store.model.dto.StoreItemDto;
 public class StoreService {
 
 	private StoreDao dao = new StoreDao();
+
 	
 	public List<StoreItemDto> selectList(){
 		List<StoreItemDto> result = null;
@@ -74,19 +75,19 @@ public class StoreService {
 	
 	//// 추가 
 	// 페이징 처리 + 검색
-//	public int getTotalCount() {
-//		int result = 0;
-//		Connection conn = getConnection();
-//		result = dao.getTotalCount(conn);
-//		close(conn);
-//		return result;
-//	}
-//	public List<StoreItemDto> selectList(int currentPage, int pageSize, String searchWord){
-//		List<StoreItemDto> result = null;
-//		Connection conn = getConnection();
-//		int totalCount = getTotalCount(searchWord);
-//		result = dao.selectList(conn, currentPage, pageSize, totalCount, searchWord);
-//		close(conn);
-//		return result;
-//	}
+	public int getTotalCount(String searchWord) {
+		int result = 0;
+		Connection conn = getConnection();
+		result = dao.getTotalCount(conn, null);
+		close(conn);
+		return result;
+	}
+	public List<StoreItemDto> selectList(int currentPage, int pageSize, String searchWord){
+		List<StoreItemDto> result = null;
+		Connection conn = getConnection();
+		int totalCount = getTotalCount(searchWord);
+		result = dao.selectList(conn, currentPage, pageSize, totalCount, searchWord);
+		close(conn);
+		return result;
+	}
 }

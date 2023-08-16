@@ -1,4 +1,4 @@
-package jh.chada.jdbc.login.controller.model.service;
+package jh.chada.jdbc.login.model.service;
 
 import static jh.chada.jdbc.common.temp.JdbcTemplate.close;
 import static jh.chada.jdbc.common.temp.JdbcTemplate.commit;
@@ -9,9 +9,9 @@ import static jh.chada.jdbc.common.temp.JdbcTemplate.setAutoCommit;
 import java.sql.Connection;
 import java.util.List;
 
-import jh.chada.jdbc.login.controller.model.dao.MemberDao;
-import jh.chada.jdbc.login.controller.model.dto.LoginDto;
-import jh.chada.jdbc.login.controller.model.dto.Member;
+import jh.chada.jdbc.login.model.dao.MemberDao;
+import jh.chada.jdbc.login.model.dto.LoginDto;
+import jh.chada.jdbc.login.model.dto.Member;
 
 public class MemberService {
 

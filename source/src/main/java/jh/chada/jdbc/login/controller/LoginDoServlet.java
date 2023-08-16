@@ -8,8 +8,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import jh.chada.jdbc.login.controller.model.dto.LoginDto;
-import jh.chada.jdbc.login.controller.model.service.MemberService;
+import jh.chada.jdbc.login.model.dto.LoginDto;
+import jh.chada.jdbc.login.model.service.MemberService;
 
 /**
  * Servlet implementation class LoginDoServlet

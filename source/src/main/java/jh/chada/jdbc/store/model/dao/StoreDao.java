@@ -173,6 +173,101 @@ public class StoreDao {
 		System.out.println("[StoreDao Dao getSeqBoardBnoNexVal] return:" + result);
 		return result;
 	}
+	
+	public int getTotalCount(Connection conn, String searchWord) {
+		System.out.println("[Board Dao getTotalCount] searchWord:" + searchWord);
+
+		int result = 0;
+		String query = "select count(*) cnt from tb_board ";
+		if (searchWord != null) { // 검색(있다면 where처리)
+			query += " where SELL_NAME ? ";
+			searchWord = "%" + searchWord + "%";
+		}
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		try {
+			pstmt = conn.prepareStatement(query);
+			if (searchWord != null) { // 검색(있다면 where처리)
+				pstmt.setString(1, searchWord);
+				pstmt.setString(2, searchWord);
+				pstmt.setString(3, searchWord);
+			}
+			rs = pstmt.executeQuery();
+
+			if (rs.next()) {
+				result = rs.getInt("cnt");
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		System.out.println("[Board Dao getTotalCount] return:" + result);
+		return result;
+	}
+
+	public List<StoreItemDto> selectList(Connection conn, int currentPage, int pageSize, int totalCount,
+			String searchWord) {
+		System.out.println("[Board Dao selectList] currentPage:" + currentPage + ",pageSize:" + pageSize + ",totalCount:"
+				+ totalCount + ",searchWord:" + searchWord);
+
+		// 페이징처리 방정식
+		int startRownum = 0;
+		int endRownum = 0;
+		if (pageSize > 0) { // 페이징 처리(pageSize!=0아닐때)
+			startRownum = (currentPage - 1) * pageSize + 1;
+			endRownum = ((currentPage * pageSize) > totalCount) ? totalCount : (currentPage * pageSize);
+			System.out.println("startRownum:" + startRownum + ", endRownum:" + endRownum);
+		}
+
+		List<StoreItemDto> result = new ArrayList<StoreItemDto>();
+		String subquery = " select SELL_NO, SELL_NAME, SELL_STOCK, PRICE_CODE from TB_SELL ";
+		if (searchWord != null) { // 검색(있다면 where처리)
+			subquery += " where SELL_NAME ? ";
+			searchWord = "%" + searchWord + "%";
+		}
+		subquery += " order by SELL_NO desc, PRICE_CODE asc"; // 정렬순서
+		String query = subquery;
+		if (pageSize > 0) { // 페이징 처리(pageSize!=0아닐때)
+			query = " select * from ( select ROWNUM rnum, tb1.* from " + "(" + subquery + ") tb1 " + " )";
+			query += " where rnum between ? and ?";
+		}
+
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		try {
+			pstmt = conn.prepareStatement(query);
+			if (searchWord != null) { // 검색(있다면 where처리)
+				pstmt.setString(1, searchWord);
+				pstmt.setString(2, searchWord);
+				pstmt.setString(3, searchWord);
+			}
+			if (searchWord != null && pageSize > 0) { // 검색(있다면 where처리) // 페이징 처리(pageSize!=0아닐때)
+				pstmt.setInt(4, startRownum);
+				pstmt.setInt(5, endRownum);
+			} else if (searchWord == null && pageSize > 0) {// 페이징 처리(pageSize!=0아닐때)
+				pstmt.setInt(1, startRownum);
+				pstmt.setInt(2, endRownum);
+			}
+			rs = pstmt.executeQuery();
+
+			while (rs.next() == true) {
+
+				StoreItemDto dto = new StoreItemDto(
+						rs.getInt("SELL_NO"),
+						rs.getString("SELL_NAME"),
+						rs.getInt("SELL_STOCK"),
+						rs.getString("PRICE_CODE")
+						);
+				result.add(dto);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(rs);
+			close(pstmt);
+		}
+		System.out.println("[Board Dao selectList] return:" + result);
+		return result;
+	}
 
 	// 첨부파일들 읽기
 	public List<SattachFileDto> selectAttachFileList(Connection conn, int bno) {
