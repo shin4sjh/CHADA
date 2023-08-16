@@ -11,10 +11,10 @@ semi_project
 <details>
 <summary>
 
-  # 목차
+  # 목차 📖
 </summary>   
 
--
+- 설계
 
   1. [요구 사항](#요구사항)
   
@@ -24,14 +24,9 @@ semi_project
   
   4. [클래스 매핑](#클래스-매핑)
 
--
+- 구현
 
-  1.
-  
-  2. 
-  
-  3. 
-  
+
 </details>
 
 
@@ -67,14 +62,31 @@ semi_project
 
 ⏺ 메인 페이지 
 
-1️⃣상점 페이지
-2️⃣커뮤니티 페이지
-3️⃣로그인 페이지
-4️⃣마이 페이지
-5️⃣관리자 페이지
+###### 1️⃣상점 페이지 
+###### 2️⃣커뮤니티 페이지 (2)
+###### 3️⃣로그인 페이지
+###### 4️⃣마이 페이지
+###### 5️⃣관리자 페이지
 
-1-1 상품 전체
-1-2 상품 카테고리
+
+1-1 상품 전체 (상품 검색) <br>
+1-2 상품 카테고리 <br>
+1-3 상품 상세페이 <br>
+
+2-1 커뮤니티 메인 / 칼럼 메인 <br>
+2-2 글 전체 (조회) 페이 <br>
+2-3 글 상세 페이지 <br>
+2-4 글 작성/수정 페이지 <br>
+
+3-1 로그인 페이지 <br>
+3-2 회원가입 페이지 <br>
+3-3 아이디/비번 찾기 페이지 <br>
+
+4-1 내 정보 조회 페이지 <br>
+4-2 내 정보 수정 페이지 <br>
+
+5 데이터 수정 페이지 
+(회원 , 글 , 알림 , 상품 ,)
 
 </details>
 
@@ -112,4 +124,12 @@ semi_project
 
 ---
 
-<img scr="https://img.shields.io/badge/JSON-#000000?style=for-the-badge&logo=JSON&logoColor=white">
+```
+IDE       :  Eclipse / Version: 2022-03 (4.23.0) / Build id: 20220310-1457
+DBMS      :  Oracle 11XE DB - sqldeveloper / 버전 19.4.0.354 / 빌드 354.1759
+Server    :  Apache Tomcat 9.0
+Language  : java 11, HTML5, CSS, javascript,Servlet
+version manage system : github desktop 
+```
+<img src="https://img.shields.io/badge/apachetomcat-F8DC75?style=for-the-badge&logo=apachetomcat&logoColor=white"> <img src="https://img.shields.io/badge/eclipseide-2C2255?style=for-the-badge&logo=eclipseide&logoColor=white">
+<img src="https://img.shields.io/badge/json-000000?style=for-the-badge&logo=json&logoColor=white">
