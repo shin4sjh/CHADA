@@ -88,7 +88,13 @@ semi_project
 ![차다](https://github.com/shin4sjh/CHADA/assets/135290550/0d27d88c-2ed1-426f-a0b8-d85f915dadc2)
 
 # table
+
+![Display_1](https://github.com/shin4sjh/CHADA/assets/135290550/b6f05ebc-5e21-4c6b-9d46-04fbc75885fd)
+
+
 ![sell](https://github.com/shin4sjh/CHADA/assets/135290550/905ff338-33c7-498c-b5ac-1d90b59e064f)
+
+
 
 </details>
 
