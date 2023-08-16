@@ -18,7 +18,8 @@ public class StoreDao {
 		System.out.println("[Store Dao selectList]");
 		List<StoreItemDto> result = new ArrayList<StoreItemDto>();
 
-		String query = " select SELL_NO, SELL_NAME, SELL_STOCK, PRICE_CODE from TB_SELL ";
+		String query = " select price_code, sell_no, sell_name, sell_stock, price_unit, price_cup, price_pot "
+				+ " from tb_sell ts join tb_price tp using(price_code) ";
 		query += " order by SELL_NO "; // 정렬순서
 
 		PreparedStatement pstmt = null;
@@ -29,7 +30,9 @@ public class StoreDao {
 
 			while (rs.next() == true) {
 				StoreItemDto dto = new StoreItemDto(rs.getInt("SELL_NO"), rs.getString("SELL_NAME"),
-						rs.getInt("SELL_STOCK"), rs.getString("PRICE_CODE"));
+						rs.getInt("SELL_STOCK"), rs.getString("PRICE_CODE"), 
+						rs.getInt("price_unit"), rs.getInt("price_cup"), rs.getInt("price_pot"));
+				
 				result.add(dto);
 			}
 		} catch (SQLException e) {
@@ -46,7 +49,8 @@ public class StoreDao {
 	public StoreItemDto selectItem(Connection conn, int sellNo) {
 		System.out.println("[StoreDao Dao selectOne] sellNo:" + sellNo);
 		StoreItemDto result = null;
-		String query = " select SELL_NO, SELL_NAME, SELL_STOCK, PRICE_CODE from TB_SELL ";
+		String query = " select price_code, sell_no, sell_name, sell_stock, price_unit, price_cup, price_pot "
+				+ " from tb_sell ts join tb_price tp using(price_code) ";
 		query += " where SELL_NO=?";
 
 		PreparedStatement pstmt = null;
@@ -57,8 +61,9 @@ public class StoreDao {
 			rs = pstmt.executeQuery();
 
 			while (rs.next() == true) {
-				result = new StoreItemDto(rs.getInt("SELL_NO"), rs.getString("SELL_NAME"), rs.getInt("SELL_STOCK"),
-						rs.getString("PRICE_CODE"));
+				result = new StoreItemDto(rs.getInt("SELL_NO"), rs.getString("SELL_NAME"),
+						rs.getInt("SELL_STOCK"), rs.getString("PRICE_CODE"), 
+						rs.getInt("price_unit"), rs.getInt("price_cup"), rs.getInt("price_pot"));
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -219,7 +224,8 @@ public class StoreDao {
 		}
 
 		List<StoreItemDto> result = new ArrayList<StoreItemDto>();
-		String subquery = " select SELL_NO, SELL_NAME, SELL_STOCK, PRICE_CODE from TB_SELL ";
+		String subquery =  " select price_code, sell_no, sell_name, sell_stock, price_unit, price_cup, price_pot "
+				+ " from tb_sell ts join tb_price tp using(price_code) ";
 		if (searchWord != null) { // 검색(있다면 where처리)
 			subquery += " where SELL_NAME ? ";
 			searchWord = "%" + searchWord + "%";
@@ -251,12 +257,9 @@ public class StoreDao {
 
 			while (rs.next() == true) {
 
-				StoreItemDto dto = new StoreItemDto(
-						rs.getInt("SELL_NO"),
-						rs.getString("SELL_NAME"),
-						rs.getInt("SELL_STOCK"),
-						rs.getString("PRICE_CODE")
-						);
+				StoreItemDto dto =  new StoreItemDto(rs.getInt("SELL_NO"), rs.getString("SELL_NAME"),
+						rs.getInt("SELL_STOCK"), rs.getString("PRICE_CODE"), 
+						rs.getInt("price_unit"), rs.getInt("price_cup"), rs.getInt("price_pot"));
 				result.add(dto);
 			}
 		} catch (SQLException e) {

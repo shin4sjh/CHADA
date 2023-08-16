@@ -12,22 +12,40 @@ public class StoreItemDto {
 	private String priceCode;
 	private List<SattachFileDto> sattachFileList;
 	
+	private Integer priceUnit;
+	private Integer priceCup;
+	private Integer pricePot;
+	
 	public StoreItemDto() {
 	}
 	
-	public StoreItemDto(Integer sellNo, String sellName, Integer sellStock, String priceCode) {
+//	public StoreItemDto(Integer sellNo, String sellName, Integer sellStock, String priceCode) {
+//		this.sellNo = sellNo;
+//		this.sellName = sellName;
+//		this.sellStock = sellStock;
+//		this.priceCode = priceCode;
+//	}
+	
+	public StoreItemDto(Integer sellNo, String sellName, Integer sellStock, String priceCode,
+			 Integer priceUnit, Integer priceCup, Integer pricePot) {
 		this.sellNo = sellNo;
 		this.sellName = sellName;
 		this.sellStock = sellStock;
 		this.priceCode = priceCode;
+		this.priceUnit = priceUnit;
+		this.priceCup = priceCup;
+		this.pricePot = pricePot;
 	}
-	
-	
+
+
+
 	@Override
 	public String toString() {
 		return "StoreItemDto [sellNo=" + sellNo + ", sellName=" + sellName + ", sellStock=" + sellStock + ", priceCode="
-				+ priceCode + ", sattachFileList=" + sattachFileList + "]";
+				+ priceCode + ", sattachFileList=" + sattachFileList + ", priceUnit=" + priceUnit + ", priceCup="
+				+ priceCup + ", pricePot=" + pricePot + "]";
 	}
+
 
 	public Integer getSellNo() {
 		return sellNo;
@@ -60,6 +78,30 @@ public class StoreItemDto {
 
 	public void setSattachFileList(List<SattachFileDto> sattachFileList) {
 		this.sattachFileList = sattachFileList;
+	}
+
+	public Integer getPriceUnit() {
+		return priceUnit;
+	}
+
+	public void setPriceUnit(Integer priceUnit) {
+		this.priceUnit = priceUnit;
+	}
+
+	public Integer getPriceCup() {
+		return priceCup;
+	}
+
+	public void setPriceCup(Integer priceCup) {
+		this.priceCup = priceCup;
+	}
+
+	public Integer getPricePot() {
+		return pricePot;
+	}
+
+	public void setPricePot(Integer pricePot) {
+		this.pricePot = pricePot;
 	}
 
 	

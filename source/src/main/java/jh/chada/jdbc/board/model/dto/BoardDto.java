@@ -14,7 +14,7 @@ public class BoardDto {
 	private Integer boardRef; 
 	private Integer boardLevel; 
 	private Integer boardStep; 
-	private String memberNo; 
+	private String memberNo;
 	private String boardCategory;
 	private String keywordCode;
 	private Integer tagNo;
@@ -29,6 +29,9 @@ public class BoardDto {
 	private String tagName3;
 	
 	private List<BattachFileDto> battachFileList;
+
+	private String memberId;
+	
 	
 	public BoardDto() {
 	}
@@ -112,6 +115,7 @@ public class BoardDto {
 
 	}
 
+	
 	@Override
 	public String toString() {
 		return "BoardDto [boardCode=" + boardCode + ", boardTitle=" + boardTitle + ", boardContent=" + boardContent
@@ -120,7 +124,7 @@ public class BoardDto {
 				+ keywordCode + ", tagNo=" + tagNo + ", replyNo=" + replyNo + ", replyDate=" + replyDate
 				+ ", replyLevel=" + replyLevel + ", replyStep=" + replyStep + ", readDate=" + readDate + ", blikeDate="
 				+ blikeDate + ", tagName=" + tagName + ", tagName2=" + tagName2 + ", tagName3=" + tagName3
-				+ ", battachFileList=" + battachFileList + "]";
+				+ ", battachFileList=" + battachFileList + ", memberId=" + memberId + "]";
 	}
 
 	public Integer getBoardCode() {
@@ -289,6 +293,14 @@ public class BoardDto {
 
 	public void setBattachFileList(List<BattachFileDto> battachFileList) {
 		this.battachFileList = battachFileList;
+	}
+
+	public String getMemberId() {
+		return memberId;
+	}
+
+	public void setMemberId(String memberId) {
+		this.memberId = memberId;
 	}
 
 	

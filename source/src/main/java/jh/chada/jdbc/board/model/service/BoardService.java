@@ -45,7 +45,7 @@ public class BoardService {
 			int result = 0;
 			Connection conn = getConnection();
 			setAutoCommit(conn, false);
-			int nextval = dao.getSeqBoardBoardCodeNexVal(conn);
+			int nextval = dao.getSeqBoardCodeNexVal(conn);
 			if(dto.getBoardCode() == 0) { // 원본글작성
 				result = dao.insert(conn, dto, nextval);
 				if(fileList!=null && fileList.size()>0) {

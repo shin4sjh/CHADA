@@ -857,3 +857,9 @@ INSERT INTO TB_CART VALUES (0,'0',0,'00/01/01');
 commit;
 
 
+select price_code, sell_no, sell_name, sell_stock, price_unit, price_cup, price_pot
+from tb_sell ts join tb_price tp using(price_code);
+
+create sequence SEQ_BOARD_CODE;
+
+TB_BOARD

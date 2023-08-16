@@ -8,10 +8,10 @@
 <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
 </head>
 <body>
- 
+<jsp:include page="/views/header.jsp"></jsp:include>
 <c:choose>
 	<c:when test="${not empty bvo }">
-		<h2>${bvo.board_code }</h2>
+		<h2>제목 : ${bvo.boardCode }</h2>
 	</c:when>
 	<c:otherwise>
 		<script>
@@ -21,10 +21,10 @@
 	</c:otherwise>
 </c:choose>
 	<div>
-		<input type="hidden" name="board_code" value="${bvo.board_code }">
-		제목:<input type="text" name="board_code" value="${bvo.board_code }" readonly>
+		<input type="hidden" name="board_code" value="${bvo.boardCode }">
+		제목:<input type="text" name="board_code" value="${bvo.boardCode }" readonly>
 		<br>
-		내용:<textarea rows="10" cols="50" name="bcontent" value="${bvo.board_code }" readonly></textarea>
+		내용:<textarea rows="10" cols="50" name="bcontent" value="${bvo.boardCode }" readonly></textarea>
 		<br>
 		<c:forEach items="${bvo.battachFileList }" var="filevo">
 			svg는 img 태그로 안보일 수 있음<br>
@@ -32,11 +32,12 @@
 			<br>
 		</c:forEach>
 		<hr>
-	<c:if test="${SsLoginId eq bvo.mid}">
-		로그인id와 글작성자 같으면 수정버튼 보이기
-		<button type="button" id="btn-board-update">글 수정</button>
-		<button type="button" id="btn-board-delete">글 삭제</button>
-	</c:if>
+		<c:if test="${not empty SsLoginNo }">
+			<c:if test="${SsLoginNo eq bvo.memberNo }">
+				<button type="button" id="btn-board-update">글 수정</button>
+				<button type="button" id="btn-board-delete">글 삭제</button>
+			</c:if>
+		</c:if>
 		<button type="button" id="btn-board-reply">댓글달기</button>
 		<button type="button" id="btn-board-list">글목록으로 이동</button>
 	</div>
@@ -54,5 +55,7 @@
 			location.href="${pageContext.request.contextPath}/board/list";
 		});
 	</script>
+	
+	<jsp:include page="/views/footer.jsp"></jsp:include>
 </body>
 </html>

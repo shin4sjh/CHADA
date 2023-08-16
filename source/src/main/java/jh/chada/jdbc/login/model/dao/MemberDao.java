@@ -162,8 +162,8 @@ public class MemberDao {
 	}
 
 	// login : mpwd를 return 함. id 존재하지 않으면 return null
-	public String login(Connection conn, String memberId) {
-		System.out.println("[Member Dao login] mid:" + memberId);
+	public String login(Connection conn, String memberId, String memberPassword) {
+		System.out.println("[Member Dao login] mid:" + memberId +", memberPassword: "+ memberPassword);
 //		MEMBER_NO            NOT NULL VARCHAR2(10)  
 //		MEMBER_ID            NOT NULL VARCHAR2(100) 
 //		MEMBER_PASSWORD      NOT NULL VARCHAR2(100) 
@@ -182,15 +182,16 @@ public class MemberDao {
 		
 		
 		String result = null;
-		String query = "select MEMBER_PASSWORD from TB_MEMBER where MEMBER_ID=?";
+		String query = "select MEMBER_NO from TB_MEMBER where MEMBER_ID=? and MEMBER_PASSWORD = ?";
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		try {
 			pstmt = conn.prepareStatement(query);
 			pstmt.setString(1, memberId);
+			pstmt.setString(2, memberPassword);
 			rs = pstmt.executeQuery();
 			if (rs.next()) {
-				result = rs.getString("MEMBER_PASSWORD");
+				result = rs.getString("MEMBER_NO");
 			}
 		} catch (Exception e) {
 			e.printStackTrace();

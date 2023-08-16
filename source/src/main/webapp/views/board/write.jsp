@@ -31,7 +31,7 @@
 			</c:if>
 			제목:<input type="text" name="boardTitle">
 			<br>
-			내용:<textarea rows="10" cols="50" name="bcontent"></textarea>
+			내용:<textarea rows="10" cols="50" name="boardContent"></textarea>
 			<br>
 			<button type="button" id="btn-add-file">파일추가</button>
 			<div id="add-file">

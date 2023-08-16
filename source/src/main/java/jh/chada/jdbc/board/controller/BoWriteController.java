@@ -98,7 +98,7 @@ System.out.println("/board/write doGet()");
 		System.out.println(boardContent);
 		System.out.println(attachFileList);
 		
-		String memberNo = (String)request.getSession().getAttribute("SsLoginId");  // TODO: 임시작성자 - 로그인한 id로 변경
+		String memberNo = (String)request.getSession().getAttribute("SsLoginNo");  // TODO: 임시작성자 - 로그인한 id로 변경
 		
 		// 답글작성시 참조글번호
 		String board_codeStr = multiReq.getParameter("board_code");

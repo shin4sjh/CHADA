@@ -7,21 +7,24 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import jh.chada.jdbc.login.model.dto.LoginDto;
+import jh.chada.jdbc.login.model.service.MemberService;
+
 /**
- * Servlet implementation class ResetController
+ * Servlet implementation class LogoutDoServlet
  */
-@WebServlet("/login")
-public class LoginController extends HttpServlet {
+@WebServlet("/login.logout")
+public class LogoutDoServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-  
+   
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String msg  = (String)request.getSession().getAttribute("msg");
-		if(msg != null) {
-			request.getSession().removeAttribute("msg");
-			request.setAttribute("msg", msg);
+	
+		request.getSession().removeAttribute("SsLoginId");
+		request.getSession().removeAttribute("SsLoginNo");
+		response.sendRedirect(request.getContextPath()+"/store/list");
 		}
 		
-		request.getRequestDispatcher("/views/login/login.jsp").forward(request, response);
 	}
-}
+
+

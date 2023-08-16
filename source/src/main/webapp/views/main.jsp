@@ -1,3 +1,6 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <!DOCTYPE html>
 <html lang="KO">
 
@@ -40,7 +43,9 @@
         <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/earlyaccess/notosanskr.css">
         <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-        <script src="/source/src/main/webapp/resources/js/main.js"></script>
+        <script type= "text"/javascript" src="<%=request.getContextPath()%>/resources/js/main.js"></script>
+
+
         <script type="text/javascript">
             WebFontConfig = {
                 google: { families: ['Noto+Sans:400,700:latin'] }
@@ -98,8 +103,8 @@
     <div id="container">
         <div id="header">
             <div class="logo-wrap">
-                <div class="logo"><a href="/main.html" style="color: rgb(248, 248, 237);"><img
-                            src="${pageContext.request.contextPath}/source/src/main/webapp/resources/images/chada1.png" width="90px"></a></div>
+                <div class="logo"><a href="<%=request.getContextPath()%>/main" style="color: rgb(248, 248, 237);"><img
+                            src="<%=request.getContextPath()%>/resources/images/chada2.png" width="97px"></a></div>
             </div>
         </div><!-- header end -->
 
@@ -140,7 +145,7 @@
 
                 <script>
                     $(document).ready(function () {
-                        $('.logo img').attr('src', '/img/chada_logo-01.png');
+                        $('.logo img').attr('src', '<%=request.getContextPath()%>/resources/images/chada2.png');
                         $('.instagram img').attr('src', '/img/instagram_W.png');
                         $('.facebook img').attr('src', '/img/facebook_W.png');
                         $('.logo a, #left-category, #right-category, #left-category a, #right-category a, .category a').css('color', '#f8f8ed');
@@ -269,17 +274,18 @@
                 <div id="fullpage" class="fullpage-wrapper"
                     style="height: 100%; position: relative; touch-action: none; transform: translate3d(0px, 0px, 0px);">
                     <div class="section fp-section active fp-table" id="section1"
-                        style="background-image: url(/source/src/main/webapp/resources/images/IMG_8080.JPEG); height: 624px;"
+                        
+                         style="background-image: url("/IMG_8080.JPEG"); height: 624px;" 
                         data-anchor="section-1">
                         <div class="fp-tableCell" style="height:624px;"></div>
                     </div>
                     <div class="section fp-section fp-table" id="section2"
-                        style="background-image: url(/source/src/main/webapp/resources/images/IMG_8083.JPEG); height: 624px;"
+                        style="background-image: url("<%=request.getContextPath()%>\resources\images\IMG_8083.JPEG"); height: 624px;"
                         data-anchor="section-2">
                         <div class="fp-tableCell" style="height:624px;"></div>
                     </div>
                     <div class="section fp-section fp-table" id="section2"
-                        style="background-image: url(/source/src/main/webapp/resources/images/IMG_8094.JPEG); height: 624px;"
+                        style="background-image: url("/resources/images/IMG_8094.JPEG"); height: 624px;"
                         data-anchor="section-2">
                         <div class="fp-tableCell" style="height:624px;"></div>
                     </div>

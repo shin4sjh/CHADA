@@ -4,187 +4,88 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="stylesheet" type="text/css" href="/source/src/main/webapp/resources/css/storelist.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script>
 <meta charset="UTF-8">
 <title>전체 물품</title>
+<style>
+.wrap-grid.store{
+display:grid;
+grid-template-columns:auto auto;
+}
+.btn-black{
+background-color: gray;
+}
+</style>
 </head>
 <body>
+<script>
+	var msg = '${msg}';
+	if(msg){
+		alert(msg);
+	}
+</script>
+<jsp:include page="/views/header.jsp"></jsp:include>
 
-	<main>
-		<div doz_type="row" doz_grid="12" class="doz_row">
-			<div doz_type="grid" doz_grid="12" class="col-dz col-dz-12">
-				<div doz_type="widget" id="w20201013909c95be0157f">
-					<div class="_widget_data " data-widget-name="메뉴/카테고리"
-						data-widget-type="sub_menu" data-widget-anim="none"
-						data-widget-anim-duration="0.7" data-widget-anim-delay="0"
-						data-widget-parent-is-mobile="N">
-						<div class="widget">
-							<div
-								class="nav sub-menu sub_menu_hide  h-menu-type1 menu-horizontal row-cnt-3 row-cnt-mobile-3">
-								<ul class="">
-
-									<li style="" class="depth-01  active   active-real   "
-										data-code="#"><a href="/#" data-url="$"
-										data-has_child="N" data-is_folder_menu="N"
-										class=" _fade_link   active   active-real "> <span
-											class="plain_name" data-hover="">Bean</span>
-									</a></li>
-
-									<li style="" class="depth-01    " data-code="#"><a
-										href="/#" data-url="23" data-has_child="N"
-										data-is_folder_menu="N" class=" _fade_link   "> <span
-											class="plain_name" data-hover="">Bakery</span>
-									</a></li>
-
-									<li style="" class="depth-01    " data-code="#"><a
-										href="/#" data-url="#" data-has_child="N"
-										data-is_folder_menu="N" class=" _fade_link   "> <span
-											class="plain_name" data-hover="">Variation</span>
-									</a></li>
-
-									<li style="" class="depth-01    "
-										data-code="m20230814747e425371e37"><a href="/#"
-										data-url="#" data-has_child="N" data-is_folder_menu="N"
-										class=" _fade_link   "> <span class="plain_name"
-											data-hover="">MD</span>
-									</a></li>
-
-								</ul>
-							</div>
-						</div>
-
-					</div>
-				</div>
-			</div>
-		</div>
-		<div doz_type="row" doz_grid="12" class="doz_row">
-			<div doz_type="grid" doz_grid="12" class="col-dz col-dz-12">
-				<div doz_type="widget" id="w202306115706a78bb09fd">
-					<div class="_widget_data _ds_animated_except" data-widget-name="여백"
-						data-widget-type="padding" data-widget-parent-is-mobile="N">
-						<div class="widget padding" data-height="15"
-							style="margin-top: px; margin-bottom: px;">
-							<div id="padding_w202306115706a78bb09fd"
-								style="width: 100%; min-height: 1px; height: 15px;"></div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div doz_type="row" doz_grid="12" class="doz_row">
-			<div doz_type="grid" doz_grid="12" class="col-dz col-dz-12">
-				<div doz_type="widget" id="w20200929ff1f5ef9e101d">
-					<div class="_widget_data " data-widget-name="쇼핑"
-						data-widget-type="shopping" data-widget-anim=""
-						data-widget-anim-duration="" data-widget-anim-delay=""
-						data-widget-parent-is-mobile="N">
-						<div class="shop-content widget">
-							<div class="shop-grid">
-								<div class="thumb-fluid _item_container show_rendering ">
-									<div class="shop-tools clearfix" style="display: none">
-										<div class="down-btn" style="display: none">
-											<select class="form-control" name="deliv_option_type"
-												onchange="document.location.href = encodeURI('/1740509625/?sort='+$(this).val())"
-												title="정렬 바꾸기">
-												<option value="recent" selected="">등록순</option>
-												<option value="like">인기순</option>
-												<option value="min_price">낮은가격순</option>
-												<option value="max_price">높은가격순</option>
-												<option value="comment">상품평 많은순</option>
-												<option value="abc">이름순</option>
-												<option value="descabc">이름역순</option>
-											</select>
-										</div>
-									</div>
-									
-									<c:forEach items="${storeList }" var="store">
-									<c:forEach items="${store.sattachFileList }" var="file">
-									<div
-										class="thumb-row m-list-type2 hover_image thumb-item-4 _item_wrap "
-										id="container_w20200929ff1f5ef9e101d"
-										style="visibility: visible; margin: 50px;">
-										<div class="shop-item _shop_item"
-											style="width: 313px; padding: 0px; height: 325px;">
-											<div class="item-wrap" style="position: relative;">
-
-												<a href="${pageContext.request.contextPath}/store/detail"
-													class="_fade_link shop-item-thumb hover_img_none">
-													<img data-prodcode="#" alt="${store.sellName }"
-													src="${pageContext.request.contextPath}/${file.filePath }" alt="${store.sellName }" height="200" width="200"
-													class="_org_img org_img _lazy_img"
-													
-													style="display: inline;">
-													<div class="item-overlay">
-														<div class="item-pay">
-															<div>
-																<h2>${store.sellName }</h2>
-																
-																<div class="ns-icon clearfix">
-																	<!--<span class="new bg-brand">NEW</span>-->
-																	<div class="prod_icon text-danger icon_default best">
-																		BEST <p class="pay inline-blocked" style="">9,000원</p> </div>
-																</div>
-															</div>
-														</div>
-													</div>
-												</a>
-											</div>
-										</div>
-									</div>
-									</c:forEach>
-									</c:forEach>
-								</div>
-							</div>
-						</div>
-
-
-					</div>
-				</div>
-			</div>
-		</div>
-		<div doz_type="row" doz_grid="12" class="doz_row">
-			<div doz_type="grid" doz_grid="12" class="col-dz col-dz-12">
-				<div doz_type="widget" id="w202306123bdcab6a26c08">
-					<div class="_widget_data _ds_animated_except" data-widget-name="여백"
-						data-widget-type="padding" data-widget-parent-is-mobile="N">
-						<div class="widget padding" data-height="40"
-							style="margin-top: px; margin-bottom: px;">
-							<div id="padding_w202306123bdcab6a26c08"
-								style="width: 100%; min-height: 1px; height: 40px;"></div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</main>
+<section id="latest-blog" class="padding-large overflow-hidden">
+    <div class="container">
+      <div class="row">
+        <div class="section-header text-center">
+          <h2 class="section-title">CHADA</h2>
+          <p>store</p>
+        </div>
+        <div class="row d-flex flex-wrap">
+          
+          		<c:forEach items="${storeList }" var="store">
+          <article class="col-md-4 post-item">
+            <div class="image-holder">
+            	<c:forEach items="${store.sattachFileList }" var="file">
+                <img src="${pageContext.request.contextPath}/${file.filePath }" width="100%" alt="post" class="post-image">
+                </c:forEach>
+            </div>
+            <div class="post-content">
+              <div class="post-header text-center">
+                <h3 class="post-title">
+                  <a href="single-post.html">${store.sellName }</a>
+                </h3>
+                <p>단위 당: ${store.priceUnit }원</p>
+              </div>
+            </div>
+          </article>
+       	</c:forEach> 
+          
+          
+          
+        </div>
+        <div class="btn-center">
+          <a href="#" class="btn btn-medium btn-black">위로</a>
+        </div>
+      </div>
+    </div>
+  </section>
 
 
 
 
 
 
+  <%-- [[ ${storeList }  ]]
+<div class="wrap-grid store">
+	<c:forEach items="${storeList }" var="store">
+	<div class="card" style="width: 18rem;">
+		<c:forEach items="${store.sattachFileList }" var="file">
+	  		<img src="${pageContext.request.contextPath}/${file.filePath }" class="card-img-top" alt="...">
+		</c:forEach>
+	  <div class="card-body">
+	    <h5 class="card-title">>${store.sellName }</h5>
+	    <p class="card-text">${store.priceUnit }</p>
+	    <a href="#" class="btn btn-primary">Order</a>
+	  </div>
+	</div>
+	</c:forEach>  --%>
+</div> 
 
+<jsp:include page="/views/footer.jsp"></jsp:include>
 
-
-
-
-
-
-
-
-
-	<%--  [[ ${storeList }  ]] 
-<c:forEach items="${storeList }" var="store">
-<div>${store.sellName }</div>
-	<c:forEach items="${store.sattachFileList }" var="file">
-		<div><img src="${pageContext.request.contextPath}/${file.filePath }" alt="${storeList }" height="200" width="200">
-		<p>${store.sellName }</p>
-		
-		</div>
-			<div>${file.filePath }</div>
-	</c:forEach>
-	
-	<hr>
-</c:forEach>  --%>
 </body>
 </html>

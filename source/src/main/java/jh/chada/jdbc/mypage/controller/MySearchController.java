@@ -16,7 +16,7 @@ public class MySearchController extends HttpServlet {
        
     
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.getRequestDispatcher("/views/mypage/serch.jsp").forward(request, response);
+		request.getRequestDispatcher("/views/mypage/search.jsp").forward(request, response);
 	}
 
 	

@@ -23,21 +23,19 @@ public class LoginDoServlet extends HttpServlet {
 		String memberId = request.getParameter("memberId");
 		String memberPassword = request.getParameter("memberPassword");
 		LoginDto vo = new LoginDto( memberId, memberPassword);
-		String result = new MemberService().login(memberId);
+		String result = new MemberService().login(memberId, memberPassword);
 		String sendUrl = request.getContextPath(); 
 		// TODO session
-		if(memberPassword == null) {
-			// 아이디가 존재하지 않습니다.
-		} else if(memberPassword.equals(result)) {
+		if(result != null) {
 			System.out.println("로그인 성공");
-			request.setAttribute("loginId", memberId);
-			request.getSession().setAttribute("successFailMsg", "로그인성공");
+			request.getSession().setAttribute("msg", "로그인성공");
 			request.getSession().setAttribute("SsLoginId", memberId);
-			sendUrl += "/board/list"; 
+			request.getSession().setAttribute("SsLoginNo", result);
+			sendUrl += "/store/list"; 
 		} else {
 			System.out.println("로그인 실패");
-			request.getSession().setAttribute("successFailMsg", "로그인 실패하였습니다.\n 아이디와 패스워드를 다시 확인하고 로그인 시도해주세요.");
-			sendUrl += "/board/list";
+			request.getSession().setAttribute("msg", "로그인 실패하였습니다.\n 아이디와 패스워드를 다시 확인하고 로그인 시도해주세요.");
+			sendUrl += "/login";
 		}
 		response.sendRedirect(sendUrl);
 	}

@@ -68,10 +68,10 @@ public class MemberService {
 			return result;
 		}
 		// login 
-		public String login(String memberId) {
+		public String login(String memberId, String memberPassword) {
 			String result = null;
 			Connection conn = getConnection();
-			result = dao.login(conn, memberId);
+			result = dao.login(conn, memberId, memberPassword);
 			close(conn);
 			return result;
 		}

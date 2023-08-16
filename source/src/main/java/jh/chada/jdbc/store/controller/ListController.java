@@ -18,6 +18,12 @@ public class ListController extends HttpServlet {
        
    
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String msg  = (String)request.getSession().getAttribute("msg");
+		if(msg != null) {
+			request.getSession().removeAttribute("msg");
+			request.setAttribute("msg", msg);
+		}
+		
 		request.setAttribute("storeList", new StoreService().selectList());
 		request.getRequestDispatcher("/views/store/list.jsp").forward(request, response);
 	}

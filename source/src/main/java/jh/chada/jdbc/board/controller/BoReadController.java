@@ -31,7 +31,7 @@ public class BoReadController extends HttpServlet {
 		service = new BoardService();
 	}
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String board_codeStr = request.getParameter("board_code");
+		String board_codeStr = request.getParameter("boardCode");
 		int board_code = 0;
 		if(board_codeStr != null && !board_codeStr.trim().equals("")) {
 			try {

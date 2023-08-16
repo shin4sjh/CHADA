@@ -5,7 +5,10 @@
 <head>
 <meta charset="UTF-8">
 <title>게시글 목록</title>
+
+
 <style>
+<jsp:include page="/resources/css/boardlist.css"></jsp:include>
 .wrap-flex{
 	display: flex;
 }
@@ -13,35 +16,56 @@
 	display:grid;
 	grid-template-columns: auto auto auto auto auto;
 }
+.new{
+    background-color : skyblue;
+	color: white;
+}
 </style>
 </head>
 <body>
+<jsp:include page="/views/header.jsp"></jsp:include>
 <div>
-[ <%= request.getSession().getAttribute("SsLoginId") %> ] <hr>
-[ <%= session.getAttribute("SsLoginId") %> ] <hr>
-[ ${SsLoginId } ] <hr>
-[ ${session.SsLoginId } ] <hr>
-[ EL내장객체명 : ${sessionScope.SsLoginId } ] <hr>
-[ ${successMsg } ] <hr>
-[ ${successFailMsg } ] <hr>
+
+<c:choose>
+			<c:when test="${empty SsLoginNo }">
+			
+			</c:when>
+			<c:otherwise>
+			[ ${SsLoginId } ] 접속중 
+			</c:otherwise>		
+		</c:choose>
+
+
 <script>
 	var msg = '${successFailMsg}';
 	if(msg){
 		alert(msg);
 	}
 </script>
-<c:choose>
+<%-- <c:choose>
 	<c:when test="${not empty SsLoginId }">
+<form action="<%=request.getContextPath() %>/login.logout" method="post">
 <a href="${pageContext.request.contextPath}/board/list">로그아웃</a>
+</form>
 	</c:when>
 	<c:otherwise>
 <a href="${pageContext.request.contextPath}/login">로그인</a>
 	</c:otherwise>
-</c:choose>
+</c:choose> --%>
+
 </div>
-	<h2>게시글</h2>
-	<div><a href="<%=request.getContextPath()%>/board/write">새글등록</a></div>
-	<div class="wrap-grid">
+
+<div class="navbar">
+  <a href="#">자유</a>
+  <a href="#">질의응답</a>
+  <a href="<%=request.getContextPath()%>/article/list" class="right">칼럼</a>
+</div>
+
+<div class="row">
+  <div class="main">
+    <h2>게시글</h2>
+    <div><a class="new" href="<%=request.getContextPath()%>/board/write">새글등록</a></div>
+    <div class="wrap-grid">
 		<div>번호</div>
 		<div>제목</div>
 		<div>작성자</div>
@@ -58,11 +82,15 @@
 		${vo.boardTitle }
 		</a>
 		</div>
-		<div>${vo.memberNo }</div>
+		<div>${vo.memberId }</div>
 		<div>${vo.boardDate }</div>
 		<div><a href="<%=request.getContextPath()%>/board/write?boardCode=${vo.boardCode }">답글</a></div>
 	</c:forEach>
 </c:if>
 	</div>
+  </div>
+</div>
+	
+<jsp:include page="/views/footer.jsp"></jsp:include>
 </body>
 </html>

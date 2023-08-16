@@ -21,7 +21,10 @@ public class BoardDao {
 			System.out.println("[Board Dao selectList]");
 			List<BoardDto> result = new ArrayList<BoardDto>();
 
-			String query = " select BOARD_CODE, BOARD_TITLE, to_char(BOARD_DATE, 'yyyy-mm-dd hh24:mi:ss') BOARD_DATE, MEMBER_NO, BOARD_REF, BOARD_LEVEL, BOARD_STEP, BOARD_CATEGORY, KEYWORD_CODE, TAG_NO  from TB_BOARD ";
+			String query = " select BOARD_CODE, BOARD_TITLE, to_char(BOARD_DATE, 'yyyy-mm-dd hh24:mi:ss') BOARD_DATE, MEMBER_NO, "
+					+ " (select MEMBER_ID from tb_member where MEMBER_NO = tb.MEMBER_NO) MEMBER_ID ,"
+					+ " BOARD_REF, BOARD_LEVEL, BOARD_STEP, BOARD_CATEGORY, KEYWORD_CODE, TAG_NO  "
+					+ " from TB_BOARD tb";
 			query += " order by BOARD_REF desc, BOARD_STEP asc"; // 정렬순서
 
 			PreparedStatement pstmt = null;
@@ -43,6 +46,7 @@ public class BoardDao {
 							rs.getString("KEYWORD_CODE"),					
 							rs.getInt("TAG_NO")								
 							);
+					dto.setMemberId(rs.getString("MEMBER_ID"));
 					result.add(dto);
 				}
 			} catch (SQLException e) {
@@ -59,7 +63,7 @@ public class BoardDao {
 		public BoardDto selectOne(Connection conn, int boardCode) {
 			System.out.println("[Board Dao selectOne] boardCode:" + boardCode);
 			BoardDto result = null;
-			String query = " select BOARD_CODE, BOARD_TITLE, to_char(BOARD_DATE, 'yyyy-mm-dd hh24:mi:ss') BOARD_DATE, MEMBER_NO, BOARD_REF, BOARD_LEVEL, BOARD_STEP, BOARD_CATEGORY, KEYWORD_CODE, TAG_NO  from TB_BOARD ";
+			String query = " select BOARD_CODE, BOARD_TITLE, BOARD_CONTENT, to_char(BOARD_DATE, 'yyyy-mm-dd hh24:mi:ss') BOARD_DATE, MEMBER_NO, BOARD_REF, BOARD_LEVEL, BOARD_STEP, BOARD_CATEGORY, KEYWORD_CODE, TAG_NO  from TB_BOARD ";
 			query += " where BOARD_CODE=?"; 
 
 			PreparedStatement pstmt = null;
@@ -97,10 +101,10 @@ public class BoardDao {
 		// 한 행 삽입 - BoardDto 자료형을 받아와야 함.
 		// 원본글작성
 		public int insert(Connection conn, BoardDto dto, int nextval) {
-			System.out.println("[Board Dao insert] ");
+			System.out.println("[Board Dao insert] dto: "+ dto + ", nextval:"+nextval);
 			int result = 0;
 			String query = "";
-			query = "insert into TB_BOARD values (?, ?, ?, default, ? , 0,0,?,?,?,?)";
+			query = "insert into TB_BOARD values (?, ?, ?, default, ? , 0,0,?,default,?,1)";
 			PreparedStatement pstmt = null;
 			try {
 				pstmt = conn.prepareStatement(query);
@@ -109,9 +113,9 @@ public class BoardDao {
 				pstmt.setString(3, dto.getBoardContent());
 				pstmt.setInt(4, nextval);
 				pstmt.setString(5, dto.getMemberNo());
-				pstmt.setString(6, dto.getBoardCategory());
-				pstmt.setString(7, dto.getKeywordCode());
-				pstmt.setInt(8, dto.getTagNo());
+				//pstmt.setString(6, dto.getBoardCategory());
+				pstmt.setString(6, dto.getKeywordCode());
+				//pstmt.setInt(8, dto.getTagNo());
 				result = pstmt.executeUpdate();
 			} catch (Exception e) {
 				e.printStackTrace();
@@ -299,7 +303,7 @@ public class BoardDao {
 			String query = "";
 			query = "insert all ";
 			for(int i=0; i<dtoList.size(); i++) {
-				query += " into ATTACH_FILE (FILEPATH, BOARD_CODE) values (?, ?) ";
+				query += " into BOARD_FILE (BFILE_PATH, BOARD_CODE) values (?, ?) ";
 			}
 			query += " select * from dual ";
 			PreparedStatement pstmt = null;
@@ -319,10 +323,10 @@ public class BoardDao {
 			return result;
 		}
 		
-		public int getSeqBoardBoardCodeNexVal(Connection conn) {
-			System.out.println("[Board Dao getSeqBoardBoarCodeNexVal] ");
+		public int getSeqBoardCodeNexVal(Connection conn) {
+			System.out.println("[Board Dao getSeqBoardCodeNexVal] ");
 			int result = 0;
-			String query ="select SEQ_BOARD_BOARD_CODE.nextval boardCodenextval from dual";
+			String query ="select SEQ_BOARD_CODE.nextval boardCodenextval from dual";
 			PreparedStatement pstmt = null;
 			ResultSet rs = null;
 			try {
@@ -337,7 +341,7 @@ public class BoardDao {
 				close(rs);
 				close(pstmt);
 			}
-			System.out.println("[Board Dao getSeqBoardBoardCodeNexVal] return:" + result);
+			System.out.println("[Board Dao getSeqBoardCodeNexVal] return:" + result);
 			return result;
 		}
 		
