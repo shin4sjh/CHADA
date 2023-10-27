@@ -1,8 +1,6 @@
 
 
 
-
-
 # CHADA
 semi_project
 
@@ -30,11 +28,10 @@ semi_project
 </details>
 
 
-<details>
-<summary>
+
  
 ### 요구사항 
-</summary> 
+
 
 
 | 요구사항 ID | 대분류 | 소분류 | 사용자 | 요구사항 명 | 요구사항 내용 | 화면코드 |
@@ -50,13 +47,12 @@ semi_project
 
 [요구사항 정의서](https://docs.google.com/spreadsheets/d/1evOlk0AURNnV4D4m7ayvQE9jMQT5Ebp_qkEiIpEWU1Q/edit#gid=0)
 
-</details>
 
-<details>
-<summary>
+
+
  
 ### 화면설계 
-</summary> 
+
 
 [화면 설계](https://ovenapp.io/view/kdVtcVrKSVA0XYvisgYpAtKxxBChDwfp/apSv2)
 
@@ -88,14 +84,11 @@ semi_project
 5 데이터 수정 페이지 
 (회원 , 글 , 알림 , 상품 ,)
 
-</details>
 
 
-<details>
-<summary>
 
 ### ERD - TABLE
-</summary> 
+
   
 ![차다](https://github.com/shin4sjh/CHADA/assets/135290550/0d27d88c-2ed1-426f-a0b8-d85f915dadc2)
 
@@ -108,16 +101,15 @@ semi_project
 
 
 
-</details>
 
-<details>
-<summary>
+
 
 ### 클래스 매핑 
-</summary> 
+
+![2023-10-27 12 50 55](https://github.com/shin4sjh/CHADA/assets/135290550/6d115019-6f77-46b6-ae2e-d4ad8f34e440)
 
 [URL mapping](https://docs.google.com/spreadsheets/d/1xxSBL-NDS4OMk_pamXPuaJewvQL7s9gDpoe6DaiQFxc/edit#gid=0)
-</details>
+
 
 
 
